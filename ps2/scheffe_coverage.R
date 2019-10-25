@@ -75,7 +75,7 @@ for (rp in 1:nrep) {
     cover = TRUE
     for (i in 1:100) {
 
-        # The design effect (v_theta in the notes)
+        # The design effect (v_theta in the notes) time sigma_hat
         theta = mm[n + i,]
         de = sqrt(theta %*% cm %*% theta)
 
@@ -83,7 +83,7 @@ for (rp in 1:nrep) {
         estimate = fitval[n + i]
 
         # Check if the interval covers the target at one time point
-        if ((estimate < target - smf*sig*de) || (estimate > target + smf*sig*de)) {
+        if ((estimate < target - smf*de) || (estimate > target + smf*de)) {
             cover = FALSE
         }
     }
