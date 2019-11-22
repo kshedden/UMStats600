@@ -6,7 +6,7 @@ vx = c("basewman", "basebrgy", "WEIGHT1", "momweigt", "armcircu", "heightcm", "S
 dx = select(dx, vx)
 
 dy = read_delim("mbase2.tab", "\t")
-vy = c("basewman", "basebrgy", "livebrth")
+vy = c("basewman", "basebrgy", "livebrth", "settlmnt", "delmonth")
 dy = select(dy, vy)
 
 dz = inner_join(dx, dy, by=c("basewman", "basebrgy"))

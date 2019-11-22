@@ -17,7 +17,7 @@ vx = ["basewman", "basebrgy", "WEIGHT1", "momweigt", "armcircu", "heightcm", "SK
 dx = dx.loc[:, vx]
 
 dy = pd.read_csv("mbase2.tab", sep="\t")
-vy = ["basewman", "basebrgy", "livebrth"]
+vy = ["basewman", "basebrgy", "livebrth", "settlmnt", "delmonth"]
 dy = dy.loc[:, vy]
 
 dz = pd.merge(dx, dy, left_on=["basewman", "basebrgy"], right_on=["basewman", "basebrgy"])
