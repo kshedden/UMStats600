@@ -6,6 +6,10 @@ https://dataverse.unc.edu/dataset.xhtml?persistentId=hdl:1902.29/11680
 Download the mbirth2.tab, mbase2.tab, and person.tab files, then
 prepare them using the script below, or using the equivalent R script.
 
+The person.tab file can be found here:
+
+https://dataverse.unc.edu/dataset.xhtml?persistentId=hdl:1902.29/11679
+
 You may also want to refer to the mbase.txt, mbirth.txt, and person.txt
 files, which document the variables.
 """
