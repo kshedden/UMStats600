@@ -17,11 +17,11 @@ files, which document the variables.
 import pandas as pd
 
 dx = pd.read_csv("mbirth2.tab", sep="\t")
-vx = ["basewman", "basebrgy", "WEIGHT1", "momweigt", "armcircu", "heightcm", "SKINFLD1", "sexchild"]
+vx = ["basewman", "basebrgy", "WEIGHT1", "momweigt", "armcircu", "SKINFLD1", "sexchild"]
 dx = dx.loc[:, vx]
 
 dy = pd.read_csv("mbase2.tab", sep="\t")
-vy = ["basewman", "basebrgy", "livebrth", "settlmnt", "delmonth"]
+vy = ["basewman", "basebrgy", "livebrth", "cmheight", "settlmnt", "delmonth"]
 dy = dy.loc[:, vy]
 
 dz = pd.read_csv("person.tab", sep="\t")
