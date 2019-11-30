@@ -1,13 +1,13 @@
 """
-Cebu mother baseline survey
+Construct a dataset from the Cebu longitudinal files
 
 https://dataverse.unc.edu/dataset.xhtml?persistentId=hdl:1902.29/11680
 
-Download the mbirth2.tab and mbase2.tab files, then prepare using
-the script below, or using the equivalent R script.
+Download the mbirth2.tab, mbase2.tab, and person.tab files, then
+prepare them using the script below, or using the equivalent R script.
 
-You may also want to refer to the mbase.txt and mbirth.txt files,
-which document the variables.
+You may also want to refer to the mbase.txt, mbirth.txt, and person.txt
+files, which document the variables.
 """
 
 import pandas as pd
@@ -20,4 +20,12 @@ dy = pd.read_csv("mbase2.tab", sep="\t")
 vy = ["basewman", "basebrgy", "livebrth", "settlmnt", "delmonth"]
 dy = dy.loc[:, vy]
 
-dz = pd.merge(dx, dy, left_on=["basewman", "basebrgy"], right_on=["basewman", "basebrgy"])
+dz = pd.read_csv("person.tab", sep="\t")
+vz = ["basewman", "basebrgy", "agehhmem", "wave", "RELNPRW1"]
+dz = dz.loc[:, vz]
+dz = dz.loc[dz.wave == 0, :]
+dz = dz.loc[dz.RELNPRW1 == 30, :]
+dz = dz.drop(["wave", "RELNPRW1"], axis=1)
+
+df = pd.merge(dx, dy, left_on=["basewman", "basebrgy"], right_on=["basewman", "basebrgy"])
+df = pd.merge(df, dz, left_on=["basewman", "basebrgy"], right_on=["basewman", "basebrgy"])
