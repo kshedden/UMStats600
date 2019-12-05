@@ -18,4 +18,5 @@ dz = filter(dz, wave == 0)
 dz = filter(dz, RELNPRW1 == 30)
 dz = select(dz, -wave, -RELNPRW1)
 
-df = inner_join(dx, dy, dz, by=c("basewman", "basebrgy"))
+df = inner_join(dx, dy, by=c("basewman", "basebrgy"))
+df = inner_join(df, dz, by=c("basewman", "basebrgy"))
